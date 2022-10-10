@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   $("#submit-iteam").click(function (e) {
     e.preventDefault();
     var new_iteam = $("#new-iteam").val();
@@ -15,28 +14,33 @@ $(document).ready(function () {
 
       $(".to-do-done").on("change", function () {
         // on change of state
-        if (this.checked) {
+        if ($(this).prop("checked") == true) {
           // if changed state is "CHECKED"
-          // delete the iteam form list
-          var parent_row = $(this).closest(".new-iteam");
-          parent_row.find("#asdf").wrap("<strike>");
-          parent_row.fadeOut("slow");
+          $(this).closest(".new-iteam").find("#asdf").wrap("<strike>");
+        } else if ($(this).prop("checked") == false) {
+          $(this).closest(".new-iteam").find("#asdf").unwrap();
         }
       });
 
-      $("#new-iteam").val('');
+      $(".remove-iteam").click(function () {
+        var paren_element = $(this).closest(".new-iteam");
+        if (paren_element.find(".to-do-done").prop("checked") == true) {
+          paren_element.fadeOut("slow");
+        } else if (paren_element.find(".to-do-done").prop("checked") == false) {
+          // call bootstrap modal box to open
+          open_bootstrap_modalBox("Mark the list as Done.");
+        }
+      });
 
+      $("#new-iteam").val("");
     } else {
-      $("#myModalBox").modal("show");
+      // call bootstrap modal box to open
+      open_bootstrap_modalBox("To Do Item cannot be empty !");
     }
   });
-
-
- 
-
-
-  
-
-
-
 });
+// open a modal box function
+function open_bootstrap_modalBox(status) {
+  $("#myModalBox").find(".modal-body").text(status);
+  $("#myModalBox").modal("show");
+}
