@@ -48,12 +48,13 @@
                   </div>
                 </form>
 
-                <ul id="iteam-list" class="list-group mb-0">
-                  
-                </ul>
+                <ul
+                  id="iteam-list"
+                  class="iteams-list-group list-group mb-0"
+                ></ul>
               </div>
 
-              <div id="iteam" class="d-none">
+              <div class="new-added-iteam d-none">
                 <li
                   id="asdf"
                   class="list-group-item d-flex justify-content-between align-items-center border-start-0 border-top-0 border-end-0 border-bottom rounded-0 mb-2"
@@ -65,8 +66,7 @@
                       value=""
                       aria-label="..."
                     />
-                    hi there
-            
+                    <div class="itam-name">hi there</div>
                   </div>
                   <a href="#!" data-mdb-toggle="tooltip" title="Remove item">
                     <i class="fas fa-times text-primary"></i>
@@ -74,10 +74,40 @@
                 </li>
               </div>
 
-
-
-
-
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="myModalBox"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Alert box
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">To Do Item cannot be empty!</div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        data-bs-dismiss="modal"
+                      >
+                        Understood
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
